@@ -1,0 +1,20 @@
+<div class="banner">
+  <%= image_tag 'movietheater_banner.jpeg', class: 'banner', alt: 'movie theater' %>
+</div>
+
+<div class="container">
+  <h2>My Awesome Movie Entertainement Listings</h2>
+  <div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <img src='<%= movie.poster_url %>'  class="card-img-top" alt='<%= movie.title %> movie poster'>
+        <div class="card-body">
+          <h5 class="card-title"><%= movie.title %></h5>
+          <p class="card-text"><%= movie.overview[0..80] %><%= link_to '...more' "#" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
