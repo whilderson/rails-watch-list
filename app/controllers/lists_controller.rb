@@ -7,6 +7,14 @@ class ListsController < ApplicationController
 
   def show; end
 
+  def new
+    @list = List.new
+  end
+
+  def create
+    @list = List.create(list_params)
+  end
+
   def edit
   end
 
@@ -14,5 +22,9 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def list_params
+    params.require(:lists).permit(:name)
   end
 end

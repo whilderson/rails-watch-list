@@ -8,10 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+
   </head>
 
   <body>
     <%= render 'navbar' %>
+    <div class="banner">
+      <%= image_tag 'movietheater_banner.jpeg', class: 'banner', alt: 'movie theater' %>
+    </div>
     <%= yield %>
   </body>
 </html>

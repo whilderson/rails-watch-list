@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>A small but concise selection of awesome movies.</h2>
+  <h4>And also the only ones that made it to the seed...</h4>
+  <div class="row">
+    <% if @movies.length > 0 %>
+    <% @movies.each do |movie| %>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <%= link_to image_tag(movie.poster_url, class: 'card-img-top', alt: movie.title), movie_path(movie) %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
