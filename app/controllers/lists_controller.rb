@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[show]
+  before_action :set_list, only: %i[show edit update]
   def index
     @lists = List.all
     @movies = Movie.all
@@ -13,9 +13,16 @@ class ListsController < ApplicationController
 
   def create
     @list = List.create(list_params)
+
+    redirect_to lists_path
   end
 
-  def edit
+  def edit; end
+
+  def update
+    @list.update(list_params)
+
+    redirect_to lists_path
   end
 
   private
@@ -25,6 +32,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:lists).permit(:name)
+    params.require(:list).permit(:name, :image_url)
   end
 end

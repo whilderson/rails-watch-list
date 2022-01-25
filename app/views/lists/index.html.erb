@@ -1,18 +1,26 @@
 <div class="container">
-  <div class="d-flex justify-content-between">
+  <div class="d-flex align-items-center mb-3">
     <h2>My Awesome Movie Entertainement Listings</h2>
-    <%= link_to '', new_list_path, class: "h2 far fa-plus-square" %>
+    <%= link_to '', new_list_path, class: "h2 fas fa-plus ml-3 p-1 btn btn-lg btn-secondary" %>
   </div>
 
 
   <div class="row">
     <% if @lists.length > 0 %>
     <% @lists.each do |list| %>
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <img src=''  class="card-img-top" alt='<%= list.name %>'>
+      <%= link_to list_path(list) do %>
+        <div class="col-sm">
+          <div class="card position-relative" >
+            <img src="<%= list.image_url %>" class="card-img" alt="<%= list.name %>" style="height: 160px; object-fit: cover; filter: grayscale(100%);">
+            <div class='d-flex align-items-center justify-content-center card-img-overlay h4 text-white'>
+              <%= list.name %>
+            </div>
+            <div class="position-absolute" style="top: -8px; right: 8px;">
+              <%= link_to '', edit_list_path(list), class: "h2 far fa-edit p-2 btn btn-lg btn-secondary" %>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 
