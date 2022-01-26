@@ -5,7 +5,10 @@ class ListsController < ApplicationController
     @movies = Movie.all
   end
 
-  def show; end
+  def show
+    @bookmarks = Bookmark.where(list_id: params[:id])
+    @movies = Movie.all
+  end
 
   def new
     @list = List.new
