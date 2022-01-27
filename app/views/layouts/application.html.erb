@@ -13,15 +13,20 @@
   </head>
 
   <body>
-    <%= render 'navbar' %>
     <div class="wrapper">
-      <header>
-        <%= image_tag 'movietheater_banner.jpeg', class: 'background', alt: 'movie theater' %>
-        <%= image_tag 'charlie.png', class: 'foreground_r', alt: 'charlie chaplin' %>
-        <%= image_tag 'camera.png', class: 'foreground_l', alt: 'old movie camera' %>
-      </header>
+      <% if current_page? root_path %>
+        <header>
+          <%= image_tag 'movietheater_banner.jpeg', class: 'background', alt: 'movie theater' %>
+          <%= image_tag 'charlie.png', class: 'foreground_r', alt: 'charlie chaplin' %>
+          <%= image_tag 'camera.png', class: 'foreground_l', alt: 'old movie camera' %>
+          <h1 class="title">The Micro Library of Movie Lists</h1>
+        </header>
+      <% end %>
       <div class="main-page">
-        <%= yield %>
+        <%= render 'navbar' %>
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
