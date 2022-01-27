@@ -1,7 +1,7 @@
 <div class="container">
   <h2><%= @list.name %></h2>
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :movie, collection: @movies %>
+    <%= f.association :movie, collection: @movies %>
     <%= f.input :comment %>
     <%= f.submit %>
   <% end %>
