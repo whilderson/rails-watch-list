@@ -1,9 +1,8 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light d-flex justify-content-between">
+<div class='navbar_gray' style='background-color: rgba(255,255,255,0.1)'>
+  <h4><%= link_to 'The Micro Library of Movie Lists', root_path, class: 'title' %></h4>
 
-  <a class="navbar-brand" href="#">The Mico Library of Awesome Movie Lists</a>
-
-  <div class="">
-    <%= link_to 'My Lists', lists_path, class: "btn btn-secondary" %>
-    <%= link_to 'My Movies', movies_path, class: "btn btn-secondary" %>
+  <div class=''>
+    <%= link_to 'My Lists', lists_path, class: 'btn btn-info' %>
+    <%= link_to 'My Movies', movies_path, class: 'btn btn-info' %>
   </div>
-</nav>
+</div>

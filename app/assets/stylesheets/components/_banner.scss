@@ -2,3 +2,51 @@
   width: 100%;
   margin-bottom: 40px;
 }
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+header {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+  img {
+    margin: 0px;
+  }
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);
+  position: absolute;
+  object-fit: cover;
+  width: 110%;
+  height: 100%;
+  z-index: -1;
+  padding: 0;
+}
+
+.foreground_l,
+.foreground_r {
+  transform: translateZ(-5px);
+}
+
+.foreground_l {
+  position: absolute;
+  top: 40%;
+  left: -30%;
+  height: 100%;
+  z-index: -1;
+}
+
+.foreground_r {
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  height: 100%;
+  z-index: -1;
+}
