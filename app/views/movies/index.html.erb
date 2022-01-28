@@ -4,13 +4,19 @@
     <%= link_to '', new_movie_path, class: "h2 fas fa-plus ml-3 p-1 btn btn-lg btn-secondary" %>
   </div>
 
+  <div class="form-group">
+    <%= simple_form_for :search, url: movies_path, method: "GET", html: { class: "form-inline" } do |f| %>
+      <%= f.input :title, input_html: {value: ''}, label: false %>
+      <%= f.submit 'Search', class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+
   <div class="row" style="gap: 1em 1em;">
     <% if @movies.length > 0 %>
     <% @movies.each do |movie| %>
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
-          <%= link_to image_tag(movie.poster_url, class: 'card-img-top', alt: movie.title), movie_path(movie) %>
-
+          <%= image_tag movie.poster_url, class: 'card-img-top', alt: movie.title %>
         </div>
       </div>
       <% end %>
