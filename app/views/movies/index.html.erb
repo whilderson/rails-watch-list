@@ -16,7 +16,11 @@
     <% @movies.each do |movie| %>
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
-          <%= image_tag movie.poster_url, class: 'card-img-top', alt: movie.title %>
+          <% if movie.id %>
+            <%= link_to image_tag(movie.poster_url, class: 'card-img-top', alt: movie.title), movie_path(movie) %>
+          <% else %>
+            <%= link_to image_tag(movie.poster_url, class: 'card-img-top', alt: movie.title), result_movies_path(movie.tmdb_id) %>
+          <% end %>
         </div>
       </div>
       <% end %>

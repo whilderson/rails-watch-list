@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:destroy]
   resources :movies, only: %i[index show new create] do
     collection do
-      get :search
+      get :result
+      post :add, path: 'result'
     end
   end
 end

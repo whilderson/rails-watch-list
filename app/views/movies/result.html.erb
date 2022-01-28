@@ -1,0 +1,20 @@
+<div class="container">
+  <h2><%= @movie.title %></h2>
+  <div class="movie_card">
+    <%= image_tag @movie.poster_url, class: "card-img-left" %>
+
+    <div class="d-flex flex-column align-items-start">
+      <div class="card-body mb-auto">
+        <h5 class="card-title"><%= @movie.title %></h5>
+        <p class="card-text"><%= @movie.overview %></p>
+        <p class="card-text">Rating: <%= @movie.rating %></p>
+      </div>
+      <div>
+        <%= link_to "Back to movies", movies_path, class: "btn btn-secondary m-3" %>
+        <%= link_to "Save in My Movies", add_movies_path(@movie), class: "btn btn-secondary m-3" %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
